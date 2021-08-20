@@ -8,16 +8,16 @@
     "/lib"
   ],
   "repository": {
-    "url": "git@github.com:andreasonny83/idp-spoofing-provider.git"
+    "url": "git@github.com:idp-provider/idp-spoofing-provider.git"
   },
   "author": {
-    "name": "andreasonny83",
-    "url": "https://github.com/andreasonny83/idp-spoofing-provider/blob/main/README.md"
+    "name": "idp-provider",
+    "url": "https://github.com/idp-provider"
   },
   "contributors": [
     {
       "name": "Karlis Amolins",
-      "email": "kamolins@gmail.com"
+      "email": "karlis.amolins.5@gmail.com"
     },
     {
       "name": "Andrea Sonny",
