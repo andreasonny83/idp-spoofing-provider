@@ -1,10 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import { SamlResponse } from '../../types';
 import { retryInterceptor } from '../helpers/axios';
-
-export interface SamlResponse {
-  url: string;
-  jwt: string;
-}
 
 const extractJwt = (url: string): string => {
   const re = new RegExp(/(?<=Token=).*/);
@@ -24,7 +20,7 @@ interface SendResponseConfig {
 
 export const sendResponse = async (
   destinationUrl: string,
-  data: string,
+  data: unknown,
   config?: SendResponseConfig,
   retryCallBack?: (retryMessage: string) => void,
 ): Promise<SamlResponse> => {

@@ -11,3 +11,11 @@ export const normalizeString = (document: string): string => {
 };
 
 export const generateRandomHexString = (): string => randomBytes(16).toString('hex');
+
+export const toString = (cert: string | Buffer): string => {
+  if (Buffer.isBuffer(cert)) {
+    return cert.toString();
+  }
+
+  return cert;
+};

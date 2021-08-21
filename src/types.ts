@@ -5,6 +5,11 @@ export interface SamlOptions {
   signatureAlgorithm?: 'rsa-sha512';
   digestAlgorithm?: 'sha512';
   issuer?: string;
-  attributes: Record<string, string | string[]>;
+  attributes: Record<string, unknown>;
   username: string;
+}
+
+export interface SamlResponse {
+  url: string;
+  jwt: string;
 }
