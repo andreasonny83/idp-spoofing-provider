@@ -8,7 +8,11 @@
     "/lib"
   ],
   "repository": {
-    "url": "git@github.com:idp-provider/idp-spoofing-provider.git"
+    "type": "git",
+    "url": "https://github.com/idp-provider/idp-spoofing-provider"
+  },
+  "bugs": {
+    "url": "https://github.com/idp-provider/idp-spoofing-provider/issues"
   },
   "author": {
     "name": "idp-provider",
@@ -54,7 +58,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "querystring": "^0.2.1",
     "xml-crypto": "^2.1.2",
     "xmldom": "^0.6.0"
   }

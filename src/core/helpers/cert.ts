@@ -1,30 +1,26 @@
-const startPlaceholder = '-----BEGIN CERTIFICATE-----';
-const endPlaceholder = '-----END CERTIFICATE-----';
+import { toString } from './string';
 
-const _toString = (cert: string | Buffer): string => {
-  if (Buffer.isBuffer(cert)) {
-    return cert.toString();
-  }
-  return cert;
+const CRYPT_TYPES = {
+  certificate: /-----BEGIN CERTIFICATE-----[^-]*-----END CERTIFICATE-----/,
+  'RSA private key': /-----BEGIN RSA PRIVATE KEY-----\n[^-]*\n-----END RSA PRIVATE KEY-----/,
+  'public key': /-----BEGIN PUBLIC KEY-----\n[^-]*\n-----END PUBLIC KEY-----/,
 };
 
-export const validateCert = (cert: string | Buffer): void => {
-  const certificate = _toString(cert);
+export const validateCert = (value: string | Buffer, type: keyof typeof CRYPT_TYPES = 'certificate'): void => {
+  const certificate = toString(value);
+  const result = CRYPT_TYPES[type] && CRYPT_TYPES[type].test(certificate);
 
-  if (!certificate.trim().startsWith(startPlaceholder)) {
-    throw new Error(`Certificate must start with ${startPlaceholder}`);
-  }
-
-  if (!certificate.trim().endsWith(endPlaceholder)) {
-    throw new Error(`Certificate must end with ${endPlaceholder}`);
+  if (!result) {
+    throw new Error(`Certificate must be provided in the following format ${CRYPT_TYPES[type]}`);
   }
 };
 
 export const trimCert = (cert: string | Buffer): string => {
-  const certificate = _toString(cert);
+  const certificate = toString(cert);
 
   return certificate
-    .replace(/[\n\r]/g, '')
-    .replace(startPlaceholder, '')
-    .replace(endPlaceholder, '');
+    .replace(/\r\n/g, '')
+    .replace(/\n/g, '')
+    .replace(/-----.+?-----|\n/g, '')
+    .trim();
 };
