@@ -22,7 +22,7 @@ console.warn(payload);
 
 const data = new URLSearchParams();
 data.append('SAMLResponse', toBase64(payload));
-data.append('RelayState', toBase64(`{"products":["flex"],"resource":"${redirectUrl}"}`));
+data.append('RelayState', toBase64(redirectUrl));
 
 sendResponse(
   url,
@@ -31,10 +31,12 @@ sendResponse(
     maxRetry: 5,
     validateStatus: (status) => {
       console.log(`Response status: ${status}`);
-      return status === 303;
+      return status === 301;
     },
   },
   (response) => {
     console.log(`Response status: ${response}`);
   },
-);
+).then(res => {
+  console.log(`Response: ${res.data}`);
+})

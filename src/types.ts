@@ -8,8 +8,3 @@ export interface SamlOptions {
   attributes: Record<string, unknown>;
   username: string;
 }
-
-export interface SamlResponse {
-  url: string;
-  jwt: string;
-}
