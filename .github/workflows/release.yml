@@ -12,13 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name:  'Automated Version Bump'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.PACKAGE_GITHUB_TOKEN }}
-        with:
-          push: false
-
       - name:  'Publish Version'
         uses: actions/setup-node@v2
         with:
