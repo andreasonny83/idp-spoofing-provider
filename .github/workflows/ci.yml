@@ -1,7 +1,7 @@
 name: PR Validator
 
 jobs:
-  lint:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout commit
