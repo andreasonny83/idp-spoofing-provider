@@ -1,3 +1,5 @@
+on: [pull_request]
+
 name: PR Validator
 
 jobs:
@@ -13,7 +15,7 @@ jobs:
           node-version: '12.x'
 
       - name: Install Dependencies
-        run: npm ci
+        run: yarn
 
       - name: Run linter
         run: yarn lint
