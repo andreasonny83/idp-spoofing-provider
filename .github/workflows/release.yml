@@ -12,15 +12,30 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: ${{ github.event.repository.default_branch }}
           token: ${{ secrets.GH_TOKEN }}
 
-      - name:  'Publish Version'
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn
-      - run: yarn build
+
+      - name: 'Setup Git'
+        run: |
+          git config --global user.email "service-user@github.com"
+          git config --global user.name "GitHub Service User"
+
+      - name: 'Install & Build'
+        run: |
+          yarn
+          yarn build
+
+      - name: 'Bump Version'
+        run: npm version ${{ github.event.release.tag_name }}
+
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 'Commit version change'
+        run: git push origin ${{ github.event.repository.default_branch }} -f
