@@ -34,7 +34,7 @@
     "prebuild": "jest",
     "build": "rm -rf lib && tsc",
     "build:ci": "rm -rf lib && tsc",
-    "lint": "eslint src",
+    "lint": "eslint src --ext .ts",
     "test": "jest"
   },
   "devDependencies": {
