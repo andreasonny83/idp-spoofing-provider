@@ -17,5 +17,6 @@
   },
   "prettier.singleQuote": true,
   "prettier.printWidth": 120,
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "files.insertFinalNewline": true
 }
