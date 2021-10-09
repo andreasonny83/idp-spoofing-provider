@@ -45,8 +45,8 @@ v12.22.1
 
 ## Demo
 
-Use the demo application inside the `demo/` folder to see a real implementation.
-You will first need to generate a key and certificate to be used by the demo app.
+Use the demo applications inside the `demo/` and `demo-mjs/` folders to see a real implementation.
+You will first need to install the dependencies with `yarn install`, then generate a key and certificate to be used by the demo app.
 
 Use the following command to generate the keys:
 
@@ -54,10 +54,12 @@ Use the following command to generate the keys:
 $ openssl req -x509 -new -newkey rsa:2048 -nodes -subj '/C=US/ST=California/L=San Francisco/O=JankyCo/CN=Test Identity Provider' -keyout ./demo/key.pem -out ./demo/cert.pem -days 7300
 ```
 
+**NOTE:** The `demo-mjs` is a demo app created with JavaScript Modules. You will need at least Node v12 to make use of that project.
+
 Then run the demo application with
 
 ```sh
-$ node demo/index.js
+$ npm start
 ```
 
 ## Contributing

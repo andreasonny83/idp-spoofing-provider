@@ -1,8 +1,8 @@
 import { DOMParser } from 'xmldom';
-import { SamlOptions } from '../../types';
-import { appendAssertionOptions } from '../helpers/dom';
-import { signXML } from '../helpers/xml';
-import { getAssertionTemplate } from '../helpers/xmlTemplate';
+import { SamlOptions } from '../../types.js';
+import { appendAssertionOptions } from '../helpers/dom.js';
+import { signXML } from '../helpers/xml.js';
+import { getAssertionTemplate } from '../helpers/xmlTemplate.js';
 
 export const createAssertion = (options: Required<SamlOptions> & { headerlessCert: string }, date: Date): string => {
   const assertionTemplate = getAssertionTemplate();

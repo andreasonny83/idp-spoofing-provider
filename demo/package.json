@@ -1,0 +1,9 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "idp-spoofing-provider": "file:../"
+  }
+}

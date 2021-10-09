@@ -1,3 +1,3 @@
-export { createResponse } from './core/response/create-response';
-export { sendResponse } from './core/response/send-response';
-export * from './types';
+export { createResponse } from './core/response/create-response.js';
+export { sendResponse } from './core/response/send-response.js';
+export * from './types.js';

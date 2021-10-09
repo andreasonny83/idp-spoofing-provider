@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { retryInterceptor } from '../helpers/axios';
+import { retryInterceptor } from '../helpers/axios.js';
 interface SendResponseConfig {
   maxRetry?: number;
   maxRedirects?: number;

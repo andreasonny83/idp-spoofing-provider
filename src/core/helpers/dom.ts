@@ -1,6 +1,6 @@
-import { SamlOptions } from '../../types';
-import { getExpirationDate } from './date';
-import { generateRandomHexString, normalizeString } from './string';
+import { SamlOptions } from '../../types.js';
+import { getExpirationDate } from './date.js';
+import { generateRandomHexString, normalizeString } from './string.js';
 
 export const appendAssertionOptions = (template: Document, options: Required<SamlOptions>, date: Date): string => {
   template.documentElement.setAttribute('ID', `_${generateRandomHexString()}`);
