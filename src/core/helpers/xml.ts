@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { SignedXml } from 'xml-crypto';
-import { SamlOptions } from '../../types';
-import { DigestAlgorithmLocation, SignatureAlgorithmLocation } from './algorithms';
+import { SamlOptions } from '../../types.js';
+import { DigestAlgorithmLocation, SignatureAlgorithmLocation } from './algorithms.js';
 
 interface SignatureOptions {
   signatureLocationPath: string;

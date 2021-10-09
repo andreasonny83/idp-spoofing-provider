@@ -1,7 +1,7 @@
-const { readFileSync } = require('fs');
-const path = require('path');
+import { readFileSync } from 'fs';
+import { resolve, dirname } from 'path';
 
-import { createResponse, sendResponse } from '../lib/mjs';
+import { createResponse, sendResponse } from '../lib/mjs/index.js';
 
 const toBase64 = (str) => Buffer.from(str).toString('base64');
 
@@ -9,8 +9,8 @@ const url = 'https://test.com/v1/saml2';
 const redirectUrl = `https://test.com`;
 
 const payload = createResponse({
-  key: readFileSync(path.resolve(__dirname, 'key.pem')).toString(),
-  cert: readFileSync(path.resolve(__dirname, 'cert.pem')).toString(),
+  key: readFileSync(resolve(dirname('.'), 'key.pem')).toString(),
+  cert: readFileSync(resolve(dirname('.'), 'cert.pem')).toString(),
   url,
   attributes: {
     test_user: 'test-user',

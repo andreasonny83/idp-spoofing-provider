@@ -1,10 +1,10 @@
 import { DOMParser } from 'xmldom';
-import { SamlOptions } from '../../types';
-import { createAssertion } from '../assertion/create-assertion';
-import { trimCert, validateCert } from '../helpers/cert';
-import { appendResponseOptions } from '../helpers/dom';
-import { signXML } from '../helpers/xml';
-import { getResponseTemplate } from '../helpers/xmlTemplate';
+import { SamlOptions } from '../../types.js';
+import { createAssertion } from '../assertion/create-assertion.js';
+import { trimCert, validateCert } from '../helpers/cert.js';
+import { appendResponseOptions } from '../helpers/dom.js';
+import { signXML } from '../helpers/xml.js';
+import { getResponseTemplate } from '../helpers/xmlTemplate.js';
 
 export const createResponse = (samlOptions: SamlOptions): string => {
   validateCert(samlOptions.cert);

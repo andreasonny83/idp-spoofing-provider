@@ -2,8 +2,13 @@
   "name": "idp-spoofing-provider",
   "description": "Authentication token issuer",
   "version": "0.2.1",
-  "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/mjs/index.js",
+  "typings": "./lib/mjs/index.d.ts",
+  "exports": {
+    "import": "./lib/mjs/index.js",
+    "require": "./lib/cjs/index.js"
+  },
   "files": [
     "/lib"
   ],
@@ -32,8 +37,8 @@
   "scripts": {
     "dev": "ts-node-dev --files --respawn src/index.ts",
     "prebuild": "jest",
-    "build": "rm -rf lib && tsc",
-    "build:ci": "rm -rf lib && tsc",
+    "build": "rm -rf lib && tsc -p tsconfig-mjs.json && tsc && ./fixup.sh",
+    "build:ci": "rm -rf lib && tsc -p tsconfig-mjs.json && tsc && ./fixup.sh",
     "lint": "eslint src --ext .ts",
     "test": "jest"
   },

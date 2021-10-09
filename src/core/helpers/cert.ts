@@ -1,4 +1,4 @@
-import { toString } from './string';
+import { toString } from './string.js';
 
 const CRYPT_TYPES = {
   certificate: /-----BEGIN CERTIFICATE-----[^-]*-----END CERTIFICATE-----/,
