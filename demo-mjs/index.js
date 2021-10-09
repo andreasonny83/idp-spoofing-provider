@@ -1,11 +1,11 @@
 import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 
-import { createResponse, sendResponse } from '../lib/mjs/index.js';
+import { createResponse, sendResponse } from 'idp-spoofing-provider';
 
 const toBase64 = (str) => Buffer.from(str).toString('base64');
 
-const url = 'https://test.com/v1/saml2';
+const url = 'https://test-123.com/v1/saml2';
 const redirectUrl = `https://test.com`;
 
 const payload = createResponse({
